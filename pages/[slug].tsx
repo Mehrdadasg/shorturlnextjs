@@ -53,15 +53,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req.headers['user-agent'] || 'unknown';
   // گرفتن IP واقعی کاربر
   const forwarded = context.req.headers['x-forwarded-for'] as string;
-  const ip = forwarded ? forwarded.split(',')[0] : context.req.socket.remoteAddress;
+  const ip = forwarded ? forwarded.split(',')[0] as string : context.req.socket.remoteAddress as string;
 
   
-
   try {
     // استفاده از urlService برای گرفتن URL اصلی
     const data = await urlService.getOriginalUrlWithLog(slug,userAgent,ip);
 
-    console.log('RedirectPage called for slug:', slug, 'at', new Date().toISOString());
+    //console.log('RedirectPage called for slug:', slug, 'at', new Date().toISOString());
 
     if (data && data.originalUrl) {
       // ثبت کلیک
