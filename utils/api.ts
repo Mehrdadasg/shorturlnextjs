@@ -2,11 +2,14 @@ import axios from 'axios';
 import { ShortUrl, CreateUrlRequest, CreateUrlResponse, GetUrlResponse } from '../types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4835';
+const authorization='7e5b26cf3601ace410857e3a0e2a97ef'
+
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
+    'authorization':authorization
   },
 });
 
