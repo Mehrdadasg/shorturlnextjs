@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: "next-app",
+        name: "yekz.ir",
         script: "npm",
         args: "run start -- -p 3010",
         env: {
