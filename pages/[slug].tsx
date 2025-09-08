@@ -3,6 +3,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { urlService } from '../utils/api';
+import Head from "next/head";
 
 interface RedirectPageProps {
   error?: boolean;
@@ -13,6 +14,12 @@ const RedirectPage: NextPage<RedirectPageProps> = ({ error }) => {
 
   if (error) {
     return (
+    <>
+      <Head>
+          <title>Short Url - لینک پیدا نشد</title>
+          <meta name="description" content="لینک مورد نظر یافت نشد یا منقضی شده است" />
+        </Head>
+
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">❌</div>
@@ -22,18 +29,22 @@ const RedirectPage: NextPage<RedirectPageProps> = ({ error }) => {
           <p className="text-gray-600 mb-4">
             متاسفانه لینک مورد نظر یافت نشد یا منقضی شده است.
           </p>
-          <button
-            onClick={() => router.push('/admin')}
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-          >
-            بازگشت به صفحه اصلی
-          </button>
+         
         </div>
       </div>
+
+      </>
     );
   }
 
   return (
+
+    <>
+    <Head>
+        <title>Short Url - در حال انتقال...</title>
+        <meta name="description" content="در حال انتقال به لینک اصلی" />
+      </Head>
+      
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
@@ -45,6 +56,8 @@ const RedirectPage: NextPage<RedirectPageProps> = ({ error }) => {
         </p>
       </div>
     </div>
+ </>
+
   );
 };
 
