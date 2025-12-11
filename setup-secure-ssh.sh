@@ -3,7 +3,7 @@
 # کلید عمومی تو (همون کلید گیت‌هاب) رو دقیقاً همین گذاشتم
 
 PUBLIC_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL9POKXWWW6HRlmEY47Trd0AP5L8GoCKKGKlT28orZuT mehrdadasg@gmail.com"
-
+#
 # ─────────────────────────────
 # از اینجا به بعد دست نزن
 # ─────────────────────────────
